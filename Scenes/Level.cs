@@ -5,14 +5,17 @@ using System.Runtime.InteropServices;
 public partial class Level : Node2D
 {
 	PackedScene meteorScene = ResourceLoader.Load<PackedScene>("res://scenes/meteor.tscn");
-	Node meteorParent = new Node();
+	PackedScene laserScene = ResourceLoader.Load<PackedScene>("res://scenes/laser.tscn");
+	Node2D meteorParent = new Node2D();
+	Node2D laserParent = new Node2D();
 
 	Timer timer;
 	
 
 	public override void _Ready()
 	{
-		meteorParent = GetNode<Node>("MeteorParent");
+		meteorParent = GetNode<Node2D>("MeteorParent");
+		laserParent = GetNode<Node2D>("LaserParent");
 		timer = GetNode<Timer>("MeteorTimer");
 
 		//Link events on creation to functions
@@ -36,14 +39,16 @@ public partial class Level : Node2D
 
 	void CreateMeteor ()
 	{
-		Node meteor = meteorScene.Instantiate();
+		Node2D meteor = meteorScene.Instantiate<Node2D>();
 		meteorParent.AddChild(meteor);
 		return;
 	}
 
 	public void ShootLaser(Vector2 position)
 	{
-		GD.Print("kerblamo! at " + position);
+		Node2D laser = laserScene.Instantiate<Node2D>();
+		laser.Position = position;
+		laserParent.AddChild(laser);
 		
 	}
 }

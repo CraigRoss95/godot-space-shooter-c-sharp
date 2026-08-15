@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://ojspckhw0pa2"]
+
+[ext_resource type="Texture2D" uid="uid://dlriomch2iof7" path="res://Assets/PNG/Effects/star1-sheet.png" id="1_d0spr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2x7v"]
+atlas = ExtResource("1_d0spr")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2gop"]
+atlas = ExtResource("1_d0spr")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7oe7"]
+atlas = ExtResource("1_d0spr")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvwch"]
+atlas = ExtResource("1_d0spr")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi5u8"]
+atlas = ExtResource("1_d0spr")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ar2v"]
+atlas = ExtResource("1_d0spr")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynkmc"]
+atlas = ExtResource("1_d0spr")
+region = Rect2(240, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktok1"]
+atlas = ExtResource("1_d0spr")
+region = Rect2(280, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ro5ko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2x7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2gop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7oe7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvwch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi5u8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ar2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynkmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktok1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynkmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ar2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi5u8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvwch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7oe7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2gop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2x7v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Star" type="AnimatedSprite2D" unique_id=2077135448]
+sprite_frames = SubResource("SpriteFrames_ro5ko")
+autoplay = "default"
+frame = 13
+frame_progress = 0.92808825

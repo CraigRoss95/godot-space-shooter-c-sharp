@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://h5awh74k7677"]
 
+[ext_resource type="Script" uid="uid://cfwrmd8fgksds" path="res://Scenes/Laser.cs" id="1_mou6w"]
 [ext_resource type="Texture2D" uid="uid://ct3yw7w5xwen1" path="res://Assets/Spritesheet/sheet.png" id="1_r1bh0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mou6w"]
@@ -8,6 +9,7 @@ size = Vector2(10, 55)
 [node name="Laser" type="Area2D" unique_id=652224639]
 collision_layer = 8
 collision_mask = 2
+script = ExtResource("1_mou6w")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1218756939]
 texture = ExtResource("1_r1bh0")
