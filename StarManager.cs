@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public partial class StarManager : Node2D
 {
 	[Export] PackedScene starScene;
-	[Export] int numberOfStars;
+	[Export] int numberOfStars = 100;
 	RandomNumberGenerator randomNumberGenerator;
 	Vector2 windowSize;
 	
@@ -17,7 +17,7 @@ public partial class StarManager : Node2D
 		randomNumberGenerator = new RandomNumberGenerator();
 		windowSize = GetViewport().GetVisibleRect().Size;
 
-		for (int i = 0; i < 20; i++)
+		for (int i = 0; i < numberOfStars; i++)
 		{
 			CreateStar();
 		}
@@ -39,15 +39,21 @@ public partial class StarManager : Node2D
 		star.Position = new Vector2 (randX,randY);
 
 		// Random Size
-		float randomScale = (float)randomNumberGenerator.RandiRange(40,100) / 100.0f;
+		float randomScale = (float)randomNumberGenerator.RandiRange(30,60) / 100.0f;
 		star.Scale = new Vector2 (randomScale,randomScale);
 		
 		// Random Animation Speed
 		float randAnimationSpeed = (float)randomNumberGenerator.RandiRange (75,300) / 100.0f;
 		star.SpeedScale = randAnimationSpeed;
-		// Rand Animation Start Time
 		
+		// Rand Animation Start Time
+		int startFrame = randomNumberGenerator.RandiRange(1,star.SpriteFrames.GetFrameCount("default"));
+		star.Frame = startFrame; 
+		GD.Print(star.SpriteFrames.GetFrameCount("default"));
+
 		// Rand Rotation
+		int randTilt = randomNumberGenerator.RandiRange (-45,45);
+		star.RotationDegrees = randTilt;
 
 		// Optional Rand Color (apply shader?)
 	}
