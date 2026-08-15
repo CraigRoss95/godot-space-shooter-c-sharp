@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cyqqgordmh7pa"]
+
+[ext_resource type="Texture2D" uid="uid://ct3yw7w5xwen1" path="res://Assets/Spritesheet/sheet.png" id="1_5civa"]
+[ext_resource type="Script" uid="uid://cxcxs0fj7ut5n" path="res://Scenes/Meteor.cs" id="1_wm1ig"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wm1ig"]
+load_path = "res://.godot/imported/sheet.png-9c15b75ecec355afe5e9ded11547b3ff.ctex"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5civa"]
+radius = 11.42858
+height = 35.714314
+
+[node name="Meteor" type="Area2D" unique_id=78548005]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_wm1ig")
+
+[node name="MeteorSprite0" type="Sprite2D" parent="." unique_id=1912362524]
+visible = false
+position = Vector2(6, 5)
+texture = ExtResource("1_5civa")
+region_enabled = true
+region_rect = Rect2(0.03640747, 519.5785, 120.217255, 98.30151)
+
+[node name="MeteorSprite1" type="Sprite2D" parent="." unique_id=940968151]
+visible = false
+position = Vector2(1, 0)
+texture = ExtResource("1_5civa")
+region_enabled = true
+region_rect = Rect2(327, 451, 98, 97)
+
+[node name="MeteorSprite2" type="Sprite2D" parent="." unique_id=1623047049]
+visible = false
+position = Vector2(6, 5)
+texture = SubResource("CompressedTexture2D_wm1ig")
+region_enabled = true
+region_rect = Rect2(225, 664, 100, 84)
+
+[node name="MeteorSprite3" type="Sprite2D" parent="." unique_id=883524389]
+visible = false
+position = Vector2(4, -2)
+texture = ExtResource("1_5civa")
+region_enabled = true
+region_rect = Rect2(518, 810, 89, 83)
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="." unique_id=1871134010]
+rotation = 3.1415927
+scale = Vector2(2.7999978, -1.7200003)
+shape = SubResource("CapsuleShape2D_5civa")

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ouxsv4v68ul7"]
+
+[ext_resource type="Texture2D" uid="uid://ct3yw7w5xwen1" path="res://Assets/Spritesheet/sheet.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://s5537l8mebeb" path="res://Scenes/Player.cs" id="1_cvnsp"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1608246205]
+collision_mask = 6
+script = ExtResource("1_cvnsp")
+
+[node name="PlayerImage" type="Sprite2D" parent="." unique_id=1181665697]
+texture = ExtResource("1_4flbx")
+region_enabled = true
+region_rect = Rect2(111.382355, 716, 112.41461, 74.69147)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=585128046]
+polygon = PackedVector2Array(3, -38, 12, -18, 56, 5, 39, 36, 16, 26, 14, 38, -10, 36, -17, 28, -36, 33, -55, 4, -11, -19, -3, -38)
