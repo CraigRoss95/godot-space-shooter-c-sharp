@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://sx35jyn6cggb" path="res://Assets/Backgrounds/blue.png" id="1_k5f4k"]
 [ext_resource type="PackedScene" uid="uid://ouxsv4v68ul7" path="res://Scenes/player.tscn" id="2_6phgx"]
 [ext_resource type="PackedScene" uid="uid://ojspckhw0pa2" path="res://Scenes/star.tscn" id="4_81xng"]
+[ext_resource type="PackedScene" uid="uid://c6phh4beijxp7" path="res://Scenes/star_manager.tscn" id="5_wqkje"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6phgx"]
 size = Vector2(119, 720)
@@ -16,13 +17,16 @@ script = ExtResource("1_81xng")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=893023042]
 texture_repeat = 2
-position = Vector2(500, 300)
+position = Vector2(579, 342)
 texture = ExtResource("1_k5f4k")
 region_enabled = true
 region_rect = Rect2(-1073.3783, -831.98474, 2494.96, 1754.4468)
 
+[node name="StarManager" parent="." unique_id=1723846866 instance=ExtResource("5_wqkje")]
+starScene = ExtResource("4_81xng")
+
 [node name="Player" parent="." unique_id=1482608068 instance=ExtResource("2_6phgx")]
-position = Vector2(645, 347)
+position = Vector2(625, 369)
 
 [node name="Borders" type="Node2D" parent="." unique_id=265508696]
 
@@ -61,37 +65,3 @@ autostart = true
 [node name="MeteorParent" type="Node2D" parent="." unique_id=96388845]
 
 [node name="LaserParent" type="Node2D" parent="." unique_id=597433460]
-
-[node name="StarParent" type="Node2D" parent="." unique_id=764707757]
-
-[node name="Star" parent="StarParent" unique_id=2077135448 instance=ExtResource("4_81xng")]
-position = Vector2(162, 106)
-scale = Vector2(0.7, 0.7)
-
-[node name="Star2" parent="StarParent" unique_id=54463976 instance=ExtResource("4_81xng")]
-position = Vector2(115, 644)
-scale = Vector2(0.7, 0.7)
-
-[node name="Star3" parent="StarParent" unique_id=1388179163 instance=ExtResource("4_81xng")]
-position = Vector2(309, 475)
-scale = Vector2(0.7, 0.7)
-
-[node name="Star4" parent="StarParent" unique_id=675015568 instance=ExtResource("4_81xng")]
-position = Vector2(825, 242)
-scale = Vector2(0.7, 0.7)
-
-[node name="Star5" parent="StarParent" unique_id=317722238 instance=ExtResource("4_81xng")]
-position = Vector2(304, 336)
-scale = Vector2(0.7, 0.7)
-
-[node name="Star6" parent="StarParent" unique_id=1627405092 instance=ExtResource("4_81xng")]
-position = Vector2(1026, 547)
-scale = Vector2(0.7, 0.7)
-
-[node name="Star7" parent="StarParent" unique_id=1875349727 instance=ExtResource("4_81xng")]
-position = Vector2(1139, 197)
-scale = Vector2(0.7, 0.7)
-
-[node name="Star8" parent="StarParent" unique_id=2044270578 instance=ExtResource("4_81xng")]
-position = Vector2(470, 109)
-scale = Vector2(0.7, 0.7)

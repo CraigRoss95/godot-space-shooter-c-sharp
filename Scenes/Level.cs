@@ -48,7 +48,7 @@ public partial class Level : Node2D
 	{
 		Node2D laser = laserScene.Instantiate<Node2D>();
 		laser.Position = position;
-		laserParent.AddChild(laser);
+				laserParent.AddChild(laser);
 		
 	}
 }

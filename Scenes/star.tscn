@@ -90,5 +90,4 @@ animations = [{
 [node name="Star" type="AnimatedSprite2D" unique_id=2077135448]
 sprite_frames = SubResource("SpriteFrames_ro5ko")
 autoplay = "default"
-frame = 13
-frame_progress = 0.92808825
+frame = 2

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c6phh4beijxp7"]
+
+[ext_resource type="Script" uid="uid://boibilwj0n4ix" path="res://StarManager.cs" id="1_lr7qh"]
+
+[node name="StarManager" type="Node2D" unique_id=1723846866]
+script = ExtResource("1_lr7qh")
