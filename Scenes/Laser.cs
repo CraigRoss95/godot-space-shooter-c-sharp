@@ -11,9 +11,8 @@ public partial class Laser : Area2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		laserSprite.Scale = new Vector2 (0,0);
 		Tween elongateLaserTween = CreateTween();
-		elongateLaserTween.TweenProperty(laserSprite, "scale", new Vector2 (1,1), 0.2);
+		elongateLaserTween.TweenProperty(laserSprite, "scale", new Vector2 (1,1), 0.2).From(new Vector2(0,0));
 		
 	}
 

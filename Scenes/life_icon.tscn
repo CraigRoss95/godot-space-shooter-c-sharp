@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cjfeu2i6hglin"]
+
+[ext_resource type="Texture2D" uid="uid://ceik5ee5negyi" path="res://Assets/PNG/UI/playerLife2_orange.png" id="1_34d58"]
+
+[node name="TextureRect" type="TextureRect" unique_id=573501296]
+texture = ExtResource("1_34d58")
+stretch_mode = 2

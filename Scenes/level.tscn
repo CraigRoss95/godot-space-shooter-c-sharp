@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://ojspckhw0pa2" path="res://Scenes/star.tscn" id="4_81xng"]
 [ext_resource type="PackedScene" uid="uid://c6phh4beijxp7" path="res://Scenes/star_manager.tscn" id="5_wqkje"]
 [ext_resource type="FontFile" uid="uid://cxp632jiupx6s" path="res://Assets/Font/subatomic.tsoonami.ttf" id="6_8c0lf"]
+[ext_resource type="Script" uid="uid://c1kx2t0v55rp3" path="res://Scenes/Ui.cs" id="6_754fn"]
 [ext_resource type="Texture2D" uid="uid://ceik5ee5negyi" path="res://Assets/PNG/UI/playerLife2_orange.png" id="7_754fn"]
+[ext_resource type="PackedScene" uid="uid://cjfeu2i6hglin" path="res://Scenes/life_icon.tscn" id="8_bvt00"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6phgx"]
 size = Vector2(119, 720)
@@ -72,7 +74,10 @@ autostart = true
 
 [node name="LaserParent" type="Node2D" parent="." unique_id=597433460]
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=2071523907]
+[node name="UI" type="CanvasLayer" parent="." unique_id=2071523907 node_paths=PackedStringArray("lifeRowHBox") groups=["ui_group"]]
+script = ExtResource("6_754fn")
+lifeIconScene = ExtResource("8_bvt00")
+lifeRowHBox = NodePath("MarginContainer2/HBoxContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1840089385]
 anchors_preset = 5
@@ -103,10 +108,8 @@ theme_override_constants/margin_left = 10
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer2/HBoxContainer" unique_id=1525329019]
+[node name="TextureRect" parent="UI/MarginContainer2/HBoxContainer" unique_id=573501296 instance=ExtResource("8_bvt00")]
 layout_mode = 2
-texture = ExtResource("7_754fn")
-stretch_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="UI/MarginContainer2/HBoxContainer" unique_id=1281653732]
 layout_mode = 2

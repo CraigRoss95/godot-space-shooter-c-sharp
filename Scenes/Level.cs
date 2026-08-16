@@ -24,6 +24,8 @@ public partial class Level : Node2D
 		timer.Timeout += CreateMeteor;
 		EventManager.MeteorImpactEvent += MeteorImpactFunc;
 		EventManager.FireLaserEvent += ShootLaser;	
+
+		GetTree().CallGroup("ui_group", "SetHealthUi", 3);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -58,6 +60,7 @@ public partial class Level : Node2D
 	void MeteorImpactFunc()
 	{
 		playerLives -= 1;
+		GetTree().CallGroup("ui_group", "SetHealthUi", playerLives);
 		if (playerLives <= 0)
 		{
 			GD.Print ("You Died");
