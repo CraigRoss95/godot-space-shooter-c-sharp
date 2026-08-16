@@ -10,6 +10,8 @@ public partial class Level : Node2D
 	Node2D laserParent = new Node2D();
 
 	Timer timer;
+
+	int playerLives = 3;
 	
 
 	public override void _Ready()
@@ -20,6 +22,7 @@ public partial class Level : Node2D
 
 		//Link events on creation to functions
 		timer.Timeout += CreateMeteor;
+		EventManager.MeteorImpactEvent += MeteorImpactFunc;
 		EventManager.FireLaserEvent += ShootLaser;	
 	}
 
@@ -50,5 +53,14 @@ public partial class Level : Node2D
 		laser.Position = position;
 				laserParent.AddChild(laser);
 		
+	}
+
+	void MeteorImpactFunc()
+	{
+		playerLives -= 1;
+		if (playerLives <= 0)
+		{
+			GD.Print ("You Died");
+		}
 	}
 }
