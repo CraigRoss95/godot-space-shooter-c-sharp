@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://ouxsv4v68ul7" path="res://Scenes/player.tscn" id="2_6phgx"]
 [ext_resource type="PackedScene" uid="uid://ojspckhw0pa2" path="res://Scenes/star.tscn" id="4_81xng"]
 [ext_resource type="PackedScene" uid="uid://c6phh4beijxp7" path="res://Scenes/star_manager.tscn" id="5_wqkje"]
+[ext_resource type="FontFile" uid="uid://cxp632jiupx6s" path="res://Assets/Font/subatomic.tsoonami.ttf" id="6_8c0lf"]
+[ext_resource type="Texture2D" uid="uid://ceik5ee5negyi" path="res://Assets/PNG/UI/playerLife2_orange.png" id="7_754fn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6phgx"]
 size = Vector2(119, 720)
@@ -36,6 +38,7 @@ collision_layer = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=184159368]
 position = Vector2(1340, 361)
 shape = SubResource("RectangleShape2D_6phgx")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Borders" unique_id=1879721151]
 collision_layer = 4
@@ -43,6 +46,7 @@ collision_layer = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2" unique_id=1236685430]
 position = Vector2(-61, 361)
 shape = SubResource("RectangleShape2D_6phgx")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Borders" unique_id=942333927]
 collision_layer = 4
@@ -50,6 +54,7 @@ collision_layer = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3" unique_id=2064479982]
 position = Vector2(635.375, -55.25)
 shape = SubResource("RectangleShape2D_81xng")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Borders" unique_id=1424673231]
 collision_layer = 4
@@ -57,6 +62,7 @@ collision_layer = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4" unique_id=1515207368]
 position = Vector2(626, 774)
 shape = SubResource("RectangleShape2D_81xng")
+metadata/_edit_lock_ = true
 
 [node name="MeteorTimer" type="Timer" parent="." unique_id=544152807]
 wait_time = 0.25
@@ -65,3 +71,59 @@ autostart = true
 [node name="MeteorParent" type="Node2D" parent="." unique_id=96388845]
 
 [node name="LaserParent" type="Node2D" parent="." unique_id=597433460]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=2071523907]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1840089385]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.5
+offset_right = 203.5
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="UI/MarginContainer" unique_id=1007363276]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_8c0lf")
+theme_override_font_sizes/font_size = 50
+text = "Sample Text"
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI" unique_id=7942163]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 201.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer2" unique_id=135156846]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer2/HBoxContainer" unique_id=1525329019]
+layout_mode = 2
+texture = ExtResource("7_754fn")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="UI/MarginContainer2/HBoxContainer" unique_id=1281653732]
+layout_mode = 2
+texture = ExtResource("7_754fn")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="UI/MarginContainer2/HBoxContainer" unique_id=1004159830]
+layout_mode = 2
+texture = ExtResource("7_754fn")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="UI/MarginContainer2/HBoxContainer" unique_id=478561381]
+layout_mode = 2
+texture = ExtResource("7_754fn")
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="UI/MarginContainer2/HBoxContainer" unique_id=1180488417]
+layout_mode = 2
+texture = ExtResource("7_754fn")
+stretch_mode = 2
