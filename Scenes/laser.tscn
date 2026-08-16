@@ -6,10 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mou6w"]
 size = Vector2(10, 55)
 
-[node name="Laser" type="Area2D" unique_id=652224639]
+[node name="Laser" type="Area2D" unique_id=652224639 node_paths=PackedStringArray("laserSprite")]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_mou6w")
+laserSprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1218756939]
 texture = ExtResource("1_r1bh0")

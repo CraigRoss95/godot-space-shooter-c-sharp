@@ -8,9 +8,7 @@ public partial class StarManager : Node2D
 	[Export] int numberOfStars = 100;
 	RandomNumberGenerator randomNumberGenerator;
 	Vector2 windowSize;
-	
 
-	List<AnimatedSprite2D> starList = new List<AnimatedSprite2D>();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -48,13 +46,12 @@ public partial class StarManager : Node2D
 		
 		// Rand Animation Start Time
 		int startFrame = randomNumberGenerator.RandiRange(1,star.SpriteFrames.GetFrameCount("default"));
-		star.Frame = startFrame; 
-		GD.Print(star.SpriteFrames.GetFrameCount("default"));
+		star.Frame = startFrame;
 
 		// Rand Rotation
 		int randTilt = randomNumberGenerator.RandiRange (-45,45);
 		star.RotationDegrees = randTilt;
 
-		// Optional Rand Color (apply shader?)
+
 	}
 }
