@@ -40,6 +40,7 @@ public partial class Meteor : Area2D
 	private void OnBodyEntered(Node2D body)
 	{
 			EventManager.BrodcastMeteorImpact();
+			
 			QueueFree();
 			
 	}

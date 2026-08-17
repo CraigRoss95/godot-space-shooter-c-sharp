@@ -1,11 +1,13 @@
 using Godot;
 using System;
+using System.ComponentModel;
 using System.Runtime.InteropServices;
 
 public partial class Level : Node2D
 {
 	PackedScene meteorScene = ResourceLoader.Load<PackedScene>("res://scenes/meteor.tscn");
 	PackedScene laserScene = ResourceLoader.Load<PackedScene>("res://scenes/laser.tscn");
+	PackedScene gameOverScene;
 	Node2D meteorParent = new Node2D();
 	Node2D laserParent = new Node2D();
 
@@ -19,6 +21,7 @@ public partial class Level : Node2D
 		meteorParent = GetNode<Node2D>("MeteorParent");
 		laserParent = GetNode<Node2D>("LaserParent");
 		timer = GetNode<Timer>("MeteorTimer");
+		gameOverScene = ResourceLoader.Load<PackedScene>("res://scenes/game_over.tscn");
 
 		//Link events on creation to functions
 		timer.Timeout += CreateMeteor;
@@ -37,6 +40,7 @@ public partial class Level : Node2D
     {
 		//Destroy event on leaving
 		timer.Timeout -= CreateMeteor;
+		EventManager.MeteorImpactEvent -= MeteorImpactFunc;
 		EventManager.FireLaserEvent -= ShootLaser;	
         base._ExitTree();
     }
@@ -63,7 +67,12 @@ public partial class Level : Node2D
 		GetTree().CallGroup("ui_group", "SetHealthUi", playerLives);
 		if (playerLives <= 0)
 		{
-			GD.Print ("You Died");
+			CallDeferred("ChangeSceneToGameOver");
 		}
+	}
+
+	void ChangeSceneToGameOver()
+	{
+		GetTree().ChangeSceneToPacked(gameOverScene);
 	}
 }

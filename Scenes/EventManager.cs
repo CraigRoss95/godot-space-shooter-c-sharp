@@ -15,6 +15,4 @@ public static class EventManager
 	{
 		MeteorImpactEvent?.Invoke();
 	}
-
-
 }

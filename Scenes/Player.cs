@@ -41,6 +41,13 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+		laserCooldownTimer.Timeout -= SetOffCooldownTrue;
+    }
+
+
 	void SetOffCooldownTrue()
 	{
 		offCooldown = true;
