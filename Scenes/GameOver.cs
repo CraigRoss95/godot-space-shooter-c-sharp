@@ -22,4 +22,14 @@ public partial class GameOver : Control
 			GetTree().ChangeSceneToPacked(levelScene);
 		}
 	}
+
+    public override void _Input(InputEvent @event)
+    {
+        if(@event.IsActionPressed("shoot"))
+		{
+			GetTree().ChangeSceneToPacked(levelScene);
+		}
+    }
+
+
 }

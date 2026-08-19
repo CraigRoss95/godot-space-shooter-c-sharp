@@ -11,6 +11,7 @@ public partial class Meteor : Area2D
 	public override void _Ready()
 	{
 		BodyEntered += OnBodyEntered;
+		AreaEntered += OnAreaEntered;
 
 		RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 		int spriteIndex = randomNumberGenerator.RandiRange(0,3);
@@ -29,6 +30,15 @@ public partial class Meteor : Area2D
 		Position = new Vector2(randW,randH);
 	}
 
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+			BodyEntered -= OnBodyEntered;
+			AreaEntered -= OnAreaEntered;
+
+    }
+
+
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
@@ -43,6 +53,13 @@ public partial class Meteor : Area2D
 			
 			QueueFree();
 			
+	}
+
+	private void OnAreaEntered(Node2D area)
+	{
+		//TODO Check if it's a laser
+		area.QueueFree();
+		QueueFree();
 	}
 
 	
