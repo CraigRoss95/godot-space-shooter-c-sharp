@@ -6,8 +6,11 @@ public partial class GameOver : Control
 {
 	// Called when the node enters the scene tree for the first time.
 	[Export] PackedScene levelScene;
+
+	[Export] Label scoreLabel;
 	public override void _Ready()
 	{
+		scoreLabel.Text = "Your Score " + Global.Score.ToString();
 		//levelScene = ResourceLoader.Load<PackedScene>("res://scenes/level.tscn");
 	}
 

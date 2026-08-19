@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://cxp632jiupx6s" path="res://Assets/Font/subatomic.tsoonami.ttf" id="1_ojehl"]
 [ext_resource type="PackedScene" uid="uid://cbyp1xwa5d3e1" path="res://Scenes/level.tscn" id="2_eoghk"]
 
-[node name="GameOver" type="Control" unique_id=638729642]
+[node name="GameOver" type="Control" unique_id=638729642 node_paths=PackedStringArray("scoreLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ek8ke")
 levelScene = ExtResource("2_eoghk")
+scoreLabel = NodePath("CenterContainer/VBoxContainer/Label2")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1424226158]
 layout_mode = 1

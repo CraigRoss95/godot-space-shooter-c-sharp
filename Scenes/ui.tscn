@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dn1vdyt00eyk8"]
+
+[ext_resource type="Script" uid="uid://c1kx2t0v55rp3" path="res://Scenes/Ui.cs" id="1_2246s"]
+[ext_resource type="PackedScene" uid="uid://cjfeu2i6hglin" path="res://Scenes/life_icon.tscn" id="2_q7pk6"]
+[ext_resource type="FontFile" uid="uid://cxp632jiupx6s" path="res://Assets/Font/subatomic.tsoonami.ttf" id="3_m78vo"]
+[ext_resource type="Texture2D" uid="uid://ceik5ee5negyi" path="res://Assets/PNG/UI/playerLife2_orange.png" id="4_smcll"]
+
+[node name="UI" type="CanvasLayer" unique_id=1471376725 node_paths=PackedStringArray("lifeRowHBox", "timer", "scoreLabel") groups=["ui_group"]]
+script = ExtResource("1_2246s")
+lifeIconScene = ExtResource("2_q7pk6")
+lifeRowHBox = NodePath("MarginContainer2/HBoxContainer")
+timer = NodePath("MarginContainer/Label/Timer")
+scoreLabel = NodePath("MarginContainer/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=332887027]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.5
+offset_right = 203.5
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1748761757]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_m78vo")
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="MarginContainer/Label" unique_id=1984564959]
+autostart = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1886488021]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 201.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2" unique_id=1395328770]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=573501296 instance=ExtResource("2_q7pk6")]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=1265540461]
+layout_mode = 2
+texture = ExtResource("4_smcll")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=775033659]
+layout_mode = 2
+texture = ExtResource("4_smcll")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=1863154507]
+layout_mode = 2
+texture = ExtResource("4_smcll")
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=210324469]
+layout_mode = 2
+texture = ExtResource("4_smcll")
+stretch_mode = 2
