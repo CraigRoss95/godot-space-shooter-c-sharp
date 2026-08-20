@@ -7,6 +7,11 @@ public partial class Meteor : Area2D
 	int moveSpeed = 0;
 	int rotationSpeed = 0;
 	float directionX = 0.0f;
+	bool canColide = true;
+
+	Sprite2D meteorSprite;
+
+	[Export] AudioStreamPlayer meteorExploadSound;
 
 	public override void _Ready()
 	{
@@ -15,7 +20,8 @@ public partial class Meteor : Area2D
 
 		RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 		int spriteIndex = randomNumberGenerator.RandiRange(0,3);
-		GetNode<Sprite2D>("MeteorSprite" + spriteIndex).Visible = true;
+		meteorSprite = GetNode<Sprite2D>("MeteorSprite" + spriteIndex);
+		meteorSprite.Visible = true;
 
 		moveSpeed = randomNumberGenerator.RandiRange(200,500);
 		rotationSpeed = randomNumberGenerator.RandiRange(-40,40);
@@ -49,19 +55,25 @@ public partial class Meteor : Area2D
 	
 	private void OnBodyEntered(Node2D body)
 	{
+		if (canColide)
+		{
 			EventManager.BrodcastMeteorImpact();
 			
-			QueueFree();
+			QueueFree();	
+		}
 			
 	}
 
-	private void OnAreaEntered(Node2D area)
+	private async void OnAreaEntered(Node2D area)
 	{
 		//TODO Check if it's a laser
 		area.QueueFree();
+		canColide = false;
+		meteorExploadSound.Play();
+		meteorSprite.Visible = false;
+		await ToSignal(GetTree().CreateTimer(1), "timeout");
 		QueueFree();
 	}
-
 	
 
 	

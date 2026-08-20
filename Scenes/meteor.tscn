@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ct3yw7w5xwen1" path="res://Assets/Spritesheet/sheet.png" id="1_5civa"]
 [ext_resource type="Script" uid="uid://cxcxs0fj7ut5n" path="res://Scenes/Meteor.cs" id="1_wm1ig"]
+[ext_resource type="AudioStream" uid="uid://db8fwuif2hpuf" path="res://Assets/Bonus/meteorExplode.ogg" id="3_bgiwl"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wm1ig"]
 load_path = "res://.godot/imported/sheet.png-9c15b75ecec355afe5e9ded11547b3ff.ctex"
@@ -10,10 +11,11 @@ load_path = "res://.godot/imported/sheet.png-9c15b75ecec355afe5e9ded11547b3ff.ct
 radius = 11.42858
 height = 35.714314
 
-[node name="Meteor" type="Area2D" unique_id=78548005]
+[node name="Meteor" type="Area2D" unique_id=78548005 node_paths=PackedStringArray("meteorExploadSound")]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_wm1ig")
+meteorExploadSound = NodePath("AudioStreamPlayer")
 
 [node name="MeteorSprite0" type="Sprite2D" parent="." unique_id=1912362524]
 visible = false
@@ -47,3 +49,6 @@ region_rect = Rect2(518, 810, 89, 83)
 rotation = 3.1415927
 scale = Vector2(2.7999978, -1.7200003)
 shape = SubResource("CapsuleShape2D_5civa")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=348861097]
+stream = ExtResource("3_bgiwl")

@@ -7,6 +7,11 @@ public partial class Player : CharacterBody2D
 
 	[Export]
 	int speed = 500; 
+
+	[Export]
+	AudioStreamPlayer laserSound;
+	[Export]
+	AudioStreamPlayer damageSound;
 	Marker2D laserStartPos = new Marker2D();
 	Timer laserCooldownTimer = new Timer();
 
@@ -19,6 +24,7 @@ public partial class Player : CharacterBody2D
 		Position = new Vector2(100, 500);
 
 		laserCooldownTimer.Timeout += SetOffCooldownTrue;
+		EventManager.MeteorImpactEvent += MakeDamageSound;
 		//Listeners
 
 	}
@@ -37,6 +43,7 @@ public partial class Player : CharacterBody2D
 			laserCooldownTimer.Start();
 			offCooldown = false;
 			//Emit brodcast from EventManager
+			laserSound.Play();
 			EventManager.BrodcastFireLaserEvent(laserStartPos.GlobalPosition);
 		}
 	}
@@ -50,8 +57,12 @@ public partial class Player : CharacterBody2D
 
 	void SetOffCooldownTrue()
 	{
-		offCooldown = true;
-		
+		offCooldown = true;	
+	}
+
+	void MakeDamageSound()
+	{
+		damageSound.Play();
 	}
 }
 
