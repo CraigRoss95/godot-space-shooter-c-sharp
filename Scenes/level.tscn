@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ojspckhw0pa2" path="res://Scenes/star.tscn" id="4_81xng"]
 [ext_resource type="PackedScene" uid="uid://c6phh4beijxp7" path="res://Scenes/star_manager.tscn" id="5_wqkje"]
 [ext_resource type="PackedScene" uid="uid://dn1vdyt00eyk8" path="res://Scenes/ui.tscn" id="6_0f350"]
+[ext_resource type="AudioStream" uid="uid://bouncfnw4scrh" path="res://Assets/Bonus/main_game.ogg" id="7_8c0lf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6phgx"]
 size = Vector2(119, 720)
@@ -72,3 +73,8 @@ autostart = true
 [node name="LaserParent" type="Node2D" parent="." unique_id=597433460]
 
 [node name="UI" parent="." unique_id=1471376725 instance=ExtResource("6_0f350")]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=206716084]
+stream = ExtResource("7_8c0lf")
+volume_db = -17.841
+autoplay = true

@@ -52,6 +52,8 @@ public partial class Player : CharacterBody2D
     {
         base._ExitTree();
 		laserCooldownTimer.Timeout -= SetOffCooldownTrue;
+		EventManager.MeteorImpactEvent -= MakeDamageSound;
+
     }
 
 

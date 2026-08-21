@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://4bhv7vqcxf1n" path="res://Scenes/GameOver.cs" id="1_ek8ke"]
 [ext_resource type="FontFile" uid="uid://cxp632jiupx6s" path="res://Assets/Font/subatomic.tsoonami.ttf" id="1_ojehl"]
 [ext_resource type="PackedScene" uid="uid://cbyp1xwa5d3e1" path="res://Scenes/level.tscn" id="2_eoghk"]
+[ext_resource type="AudioStream" uid="uid://nv3p4ydko4gm" path="res://Assets/Bonus/game_over_drone.ogg" id="4_eoghk"]
 
 [node name="GameOver" type="Control" unique_id=638729642 node_paths=PackedStringArray("scoreLabel")]
 layout_mode = 3
@@ -69,3 +70,8 @@ theme_override_fonts/font = ExtResource("1_ojehl")
 theme_override_font_sizes/font_size = 22
 text = "Space to start again"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=936782324]
+stream = ExtResource("4_eoghk")
+volume_db = -22.549
+autoplay = true
