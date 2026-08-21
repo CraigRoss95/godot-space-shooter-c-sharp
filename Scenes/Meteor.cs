@@ -66,13 +66,16 @@ public partial class Meteor : Area2D
 
 	private async void OnAreaEntered(Node2D area)
 	{
-		//TODO Check if it's a laser
-		area.QueueFree();
-		canColide = false;
-		meteorExploadSound.Play();
-		meteorSprite.Visible = false;
-		await ToSignal(GetTree().CreateTimer(1), "timeout");
-		QueueFree();
+		if(canColide)
+		{
+			//TODO Check if it's a laser
+			area.QueueFree();
+			canColide = false;
+			meteorExploadSound.Play();
+			meteorSprite.Visible = false;
+			await ToSignal(GetTree().CreateTimer(1), "timeout");
+			QueueFree();
+		}
 	}
 	
 
