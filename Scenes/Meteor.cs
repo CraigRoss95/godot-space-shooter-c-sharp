@@ -15,25 +15,10 @@ public partial class Meteor : Area2D
 
 	public override void _Ready()
 	{
+		// I tried to make this one line but couldn't
 		BodyEntered += OnBodyEntered;
 		AreaEntered += OnAreaEntered;
-
-		RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-		int spriteIndex = randomNumberGenerator.RandiRange(0,3);
-		meteorSprite = GetNode<Sprite2D>("MeteorSprite" + spriteIndex);
-		meteorSprite.Visible = true;
-
-		moveSpeed = randomNumberGenerator.RandiRange(200,500);
-		rotationSpeed = randomNumberGenerator.RandiRange(-40,40);
-		directionX = randomNumberGenerator.RandfRange(-1,1);
-
-
-		int width = (int)GetViewport().GetVisibleRect().Size.X;
-		 
-		float randW = randomNumberGenerator.RandiRange(0, width);
-		float randH = randomNumberGenerator.RandiRange(-50, -150);
-
-		Position = new Vector2(randW,randH);
+		SetupRandom();
 	}
 
     public override void _ExitTree()
@@ -53,7 +38,7 @@ public partial class Meteor : Area2D
 	}
 
 	
-	private void OnBodyEntered(Node2D body)
+	void OnBodyEntered(Node2D body)
 	{
 		if (canColide)
 		{
@@ -69,6 +54,7 @@ public partial class Meteor : Area2D
 		if(canColide)
 		{
 			//TODO Check if it's a laser
+			
 			area.QueueFree();
 			canColide = false;
 			meteorExploadSound.Play();
@@ -76,6 +62,26 @@ public partial class Meteor : Area2D
 			await ToSignal(GetTree().CreateTimer(1), "timeout");
 			QueueFree();
 		}
+	}
+
+	void SetupRandom()
+	{
+		RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+		int spriteIndex = randomNumberGenerator.RandiRange(0,3);
+		meteorSprite = GetNode<Sprite2D>("MeteorSprite" + spriteIndex);
+		meteorSprite.Visible = true;
+
+		moveSpeed = randomNumberGenerator.RandiRange(200,500);
+		rotationSpeed = randomNumberGenerator.RandiRange(-40,40);
+		directionX = randomNumberGenerator.RandfRange(-1,1);
+
+
+		int width = (int)GetViewport().GetVisibleRect().Size.X;
+		 
+		float randW = randomNumberGenerator.RandiRange(0, width);
+		float randH = randomNumberGenerator.RandiRange(-50, -150);
+
+		Position = new Vector2(randW,randH);
 	}
 	
 

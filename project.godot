@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*uid://c70tb86t5v51x"
+DamageSound="*uid://dn5rppai3bd2m"
 
 [display]
 

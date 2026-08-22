@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dn5rppai3bd2m"]
+
+[ext_resource type="AudioStream" uid="uid://n2d50l7hrv4j" path="res://Assets/Bonus/metalPipe.ogg" id="1_6g6sn"]
+
+[node name="DamageSound" type="AudioStreamPlayer" unique_id=19976960]
+stream = ExtResource("1_6g6sn")

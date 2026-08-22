@@ -5,25 +5,22 @@ using System.Dynamic;
 public partial class Player : CharacterBody2D
 {
 
-	[Export]
-	int speed = 500; 
-
-	[Export]
-	AudioStreamPlayer laserSound;
-	[Export]
-	AudioStreamPlayer damageSound;
-	Marker2D laserStartPos = new Marker2D();
-	Timer laserCooldownTimer = new Timer();
+	[Export] int speed = 500;
+	[Export] AudioStreamPlayer laserSound;
+	private AudioStreamPlayer damageSound;
+	[Export] Marker2D laserStartPos;
+	[Export] Timer laserCooldownTimer;
 
 	private bool offCooldown = true;
 	public override void _Ready()
 	{
 		//Setup
-		laserStartPos = GetNode<Marker2D>("LaserStartPos");
-		laserCooldownTimer = GetNode<Timer>("LaserCooldownTimer");
 		Position = new Vector2(100, 500);
+		damageSound = GetNode<AudioStreamPlayer>("/root/DamageSound");
 
-		laserCooldownTimer.Timeout += SetOffCooldownTrue;
+		//laserCooldownTimer.Timeout += SetOffCooldownTrue;
+		laserCooldownTimer.Connect("timeout", Callable.From(SetOffCooldownTrue));
+
 		EventManager.MeteorImpactEvent += MakeDamageSound;
 		//Listeners
 
@@ -32,13 +29,34 @@ public partial class Player : CharacterBody2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		HandelInput();
+		HandelShooting();
+	}
 
+	public override void _ExitTree()
+	{
+		base._ExitTree();
+		//laserCooldownTimer.Timeout -= SetOffCooldownTrue;
+		EventManager.MeteorImpactEvent -= MakeDamageSound;
+
+	}
+
+
+	void SetOffCooldownTrue() { offCooldown = true; }
+
+	void MakeDamageSound() { damageSound.Play(); }
+
+	void HandelInput()
+	{
 		Vector2 direction = Input.GetVector("moveLeft", "moveRight", "moveUp", "moveDown");
 
 		Velocity = direction * speed;
 		MoveAndSlide();
+	}
 
-		if(Input.IsActionPressed("shoot") && offCooldown == true)
+	void HandelShooting()
+	{
+		if (Input.IsActionPressed("shoot") && offCooldown == true)
 		{
 			laserCooldownTimer.Start();
 			offCooldown = false;
@@ -46,25 +64,6 @@ public partial class Player : CharacterBody2D
 			laserSound.Play();
 			EventManager.BrodcastFireLaserEvent(laserStartPos.GlobalPosition);
 		}
-	}
-
-    public override void _ExitTree()
-    {
-        base._ExitTree();
-		laserCooldownTimer.Timeout -= SetOffCooldownTrue;
-		EventManager.MeteorImpactEvent -= MakeDamageSound;
-
-    }
-
-
-	void SetOffCooldownTrue()
-	{
-		offCooldown = true;	
-	}
-
-	void MakeDamageSound()
-	{
-		damageSound.Play();
 	}
 }
 
